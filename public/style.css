@@ -1,0 +1,138 @@
+ 
+ *{
+    margin: 0;
+    padding: 0;
+}
+body{  
+ font-family: Calibri, Helvetica, sans-serif;  
+ background-color: pink;  
+}  
+.container {  
+   padding: 50px;  
+ background-color: lightblue;  
+}  
+ 
+input[type=text],input[type=email], input[type=password], textarea {  
+ width: 100%;  
+ padding: 15px;  
+ margin: 5px 0 22px 0;  
+ display: inline-block;  
+ border: none;  
+ background: #f1f1f1;  
+}  
+input[type=text]:focus, input[type=password]:focus {  
+ background-color: orange;  
+ outline: none;  
+}  
+div {  
+           padding: 10px 0;  
+        }  
+hr {  
+ border: 1px solid #f1f1f1;  
+ margin-bottom: 25px;  
+}  
+.registerbtn {  
+ background-color: #4CAF50;  
+ color: white;  
+ padding: 16px 20px;  
+ margin: 8px 0;  
+ border: none;  
+ cursor: pointer;  
+ width: 100%;  
+ opacity: 0.9;  
+}  
+.registerbtn:hover {  
+ opacity: 1;  
+}  
+
+/* For Navbar */
+ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   overflow: hidden;
+   position: fixed;
+ top: 0;
+ width: 100%;
+   background-color: #333;
+ }
+ 
+ li {
+   float: left;
+ }
+ 
+ li a {
+   display: block;
+   color: white;
+   text-align: center;
+   padding: 14px 16px;
+   text-decoration: none;
+ }
+ 
+ /* Change the link color to #111 (black) on hover */
+ li a:hover {
+   background-color: #111;
+ }
+
+ /* For Login */
+
+ .login {
+   /* color: white; */
+   position: absolute;
+   top: 25%;
+   left: 40%;
+ }
+ .login h1 {
+   font-family: "Heebo", sans-serif;
+   width: 50%;
+   display: inline-block;
+   font-size: 40px;
+   border-bottom: 5px solid purple;
+   margin-bottom: 15px;
+   padding: 13px 0;
+ }
+ .box {
+   width: 100%;
+   margin: 22px 0px;
+   border-bottom: 2px solid purple;
+ }
+ .box input {
+   background: none;
+   width: 75%;
+   padding: 5px 10px;
+   font-size: 20px;
+   border: none;
+   outline: none;
+   /* color: white; */
+ }
+ .btn {
+   /* color: white; */
+   cursor: pointer;
+   outline: none;
+   margin: 12px 0;
+   padding: 10px 21px;
+   border: 2px solid purple;
+   border-radius: 10px;
+   font-size: 18px;
+   background: none;
+   font-weight: bold;
+ }
+ .box i {
+   width: 25px;
+   text-align: center;
+ }
+ .btn:hover {
+   opacity: 0.5;
+   color: purple;
+   background: black;
+ }
+ /* body {
+   background: url(bg.jpg) no-repeat center center fixed;
+   background-size: cover;
+ } */
+/* Index */
+.index {
+   position: absolute;
+   top: 50px;
+   left: 5px;
+}
