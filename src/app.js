@@ -5,6 +5,8 @@ const register = require("./models/register");
 const path = require("path");
 const hbs = require("hbs");
 const bcrypt = require("bcrypt");
+const cookieParser = require("cookie-parser")
+const auth = require("./middleware/auth");
 const port = process.env.PORT || 4000;
 
 const static_path = path.join(__dirname,"../public");
@@ -16,13 +18,15 @@ const partials = path.join(__dirname,"../templates/partials");
 hbs.registerPartials(partials);
 
 app.use(express.json());    
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/",(req,res)=>{
-    res.render("Index");
+    res.render("register");
 })
-app.get("/index",(req,res)=>{
-    res.render("Index");
+app.get("/index", auth ,(req,res)=>{
+    res.render("index");
+
 })
 app.get("/register",(req,res)=>{
     res.render("register")
@@ -42,6 +46,10 @@ app.post("/register", async (req,res)=>{
         });
 
         const token = await new_register.generateAuthToken()
+
+        res.cookie("jwt", token, {
+            expires:new Date(Date.now() + 300000)
+        })
         const reg = await new_register.save();
         res.status(201).render("index");
 
@@ -57,6 +65,14 @@ app.post("/login", async(req,res)=>{
         const usermail = await register.findOne({email:email});
 
         const isMatch = await bcrypt.compare(password, usermail.password);
+
+        const token = await usermail.generateAuthToken()
+        console.log(token)
+
+        res.cookie("jwt", token, {
+            expires:new Date(Date.now() + 300000),
+            httpOnly:true
+        })
 
         if(isMatch){
             res.status(201).render("index");
