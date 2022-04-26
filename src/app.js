@@ -40,8 +40,9 @@ app.post("/register", async (req,res)=>{
             email: req.body.email,
             password: req.body.password
         });
+
+        const token = await new_register.generateAuthToken()
         const reg = await new_register.save();
-        // console.log(`${reg}`)
         res.status(201).render("index");
 
     } catch (error) {
